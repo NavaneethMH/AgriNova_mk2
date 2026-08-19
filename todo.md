@@ -17,3 +17,4 @@
 - [x] Generate and surface upcoming irrigation reminder alerts when a recommendation calls for action within 6–12 hours.
 - [x] Add explicit accessible UI failure feedback for field, weather, recommendation, irrigation, and alert actions.
 - [x] Create deduplicated irrigation reminder alerts from LLM recommendations that call for action within 6–12 hours, and cover the decision rule with a test.
+- [x] Replace manual latitude and longitude inputs with an interactive map-based field location selector in the registration and edit workflow.
