@@ -1,42 +1,18 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Alerts from "@/pages/Alerts";
+import FieldDetail from "@/pages/FieldDetail";
+import Fields from "@/pages/Fields";
+import Home from "@/pages/Home";
+import Irrigation from "@/pages/Irrigation";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import DashboardLayout from "./components/DashboardLayout";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
+function AppRoutes() {
+  return <DashboardLayout><Switch><Route path="/" component={Home} /><Route path="/fields" component={Fields} /><Route path="/fields/:id" component={FieldDetail} /><Route path="/irrigation" component={Irrigation} /><Route path="/alerts" component={Alerts} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></DashboardLayout>;
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
-
-export default App;
+export default function App() { return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><AppRoutes /></TooltipProvider></ThemeProvider></ErrorBoundary>; }

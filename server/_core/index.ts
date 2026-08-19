@@ -8,6 +8,19 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { sdk } from "./sdk";
+import { runDailyStressSummary } from "../agri/summaryJob";
+
+async function dailyStressSummaryHandler(req: express.Request, res: express.Response) {
+  try {
+    const user = await sdk.authenticateRequest(req);
+    if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });
+    return res.json(await runDailyStressSummary(user.taskUid));
+  } catch (error) {
+    const details = error instanceof Error ? { error: error.message, stack: error.stack } : { error: "Unknown scheduled task error" };
+    return res.status(500).json({ ...details, context: { url: req.originalUrl }, timestamp: new Date().toISOString() });
+  }
+}
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -36,6 +49,7 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+  app.post("/api/scheduled/daily-stress-summary", dailyStressSummaryHandler);
   // tRPC API
   app.use(
     "/api/trpc",

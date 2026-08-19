@@ -1,0 +1,5 @@
+# AgriNova Reference Findings
+
+The supplied field-map reference establishes a desktop application with a quiet, light canvas; a fixed, earth-toned navigation rail; a compact AgriNova wordmark; and field information that is surfaced as status-first cards rather than raw sensor tables. The field view prioritizes a clear stress score, an explicit condition chip, an explanation, and an irrigation action. The implementation will preserve that hierarchy while using the requested sidebar dashboard instead of reproducing a static map mockup.
+
+The supplied system visual reinforces the core product flow: soil, crop, weather, and irrigation context feeds a crop-stress calculation, which feeds a recommendation and farmer-facing alerts. It also labels remote sensing and automated irrigation as future capabilities. The MVP will therefore retain the decision-support boundary: it will calculate and explain recommendations, but will not initiate autonomous irrigation or present satellite analytics as an active feature.
