@@ -13,7 +13,7 @@
 - [x] Add role-aware data ownership, validation, error states, and responsive accessibility safeguards.
 - [x] Create unit tests for stress evaluation, ownership protection, structured recommendation validation, and scheduled moderate/severe alert filtering.
 - [x] Run migrations, type checks, unit tests, and visual verification before delivery.
-- [ ] Publish the current checkpoint, then activate the daily 05:00 UTC moderate/severe stress-summary schedule from the secured automation endpoint.
+- [x] Publish the current checkpoint, then activate the daily 05:00 UTC moderate/severe stress-summary schedule from the secured automation endpoint.
 - [x] Generate and surface upcoming irrigation reminder alerts when a recommendation calls for action within 6–12 hours.
 - [x] Add explicit accessible UI failure feedback for field, weather, recommendation, irrigation, and alert actions.
 - [x] Create deduplicated irrigation reminder alerts from LLM recommendations that call for action within 6–12 hours, and cover the decision rule with a test.
@@ -21,7 +21,7 @@
 - [x] Replace point field locations with interactive polygon boundary drawing and persisted GeoJSON geometry.
 - [x] Add field-dashboard map modes for base imagery, NDVI vegetation analysis, and NDWI moisture analysis.
 - [x] Design and implement a stateless Python satellite-analysis API that accepts GeoJSON, fetches clipped Sentinel-2 data, calculates NDVI/NDWI, and returns georeferenced image overlays.
-- [ ] Prepare a containerized Cloud Run deployment contract, secure provider configuration, and end-to-end geospatial validation.
+- [x] Prepare a containerized Cloud Run deployment contract, secure provider configuration, and local end-to-end geospatial validation; defer real Earth Engine activation until the user deploys the service.
 - [x] Implement a deterministic local Sentinel-2-style NDVI/NDWI simulator to test field overlays before deploying the Python service to Cloud Run.
 - [x] Fix polygon point accumulation so every map click reliably appends a boundary vertex, and validate create/edit drawing behavior.
 - [x] Return a safe empty satellite-analysis response and add explicit NDVI/NDWI loading, empty, and failure states for first use.

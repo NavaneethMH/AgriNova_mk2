@@ -264,3 +264,5 @@
 [2026-08-20T14:28:30.815Z] 2:28:30 PM [tsx] unlink in ./server/_core/env.ts Restarting...
 [2026-08-20T14:28:32.485Z] c[OAuth] Initialized with baseURL: https://api.manus.im
 [2026-08-20T14:28:32.757Z] Server running on http://localhost:3000/
+[2026-08-20T14:35:34.662Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-20T14:38:21.402Z] 2:38:21 PM [vite] (client) hmr update /src/index.css

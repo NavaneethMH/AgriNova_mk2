@@ -96,3 +96,20 @@
 [2026-08-20T14:22:02.556Z] {"timestamp":1787235720553,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
 [2026-08-20T14:22:02.556Z] {"timestamp":1787235720559,"level":"DEBUG","args":["[vite] connected."],"stack":null}
 [2026-08-20T14:22:02.556Z] {"timestamp":1787235720730,"level":"INFO","args":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"],"stack":null}
+[2026-08-20T14:35:36.882Z] {"timestamp":1787236534812,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:35:36.882Z] {"timestamp":1787236534827,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:35:36.882Z] {"timestamp":1787236535960,"level":"INFO","args":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"],"stack":null}
+[2026-08-20T14:35:42.205Z] {"timestamp":1787236535971,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:35:42.205Z] {"timestamp":1787236536247,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:35:45.046Z] {"timestamp":1787236538812,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:35:45.046Z] {"timestamp":1787236539061,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:35:55.061Z] {"timestamp":1787236550255,"level":"WARN","args":["Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading"],"stack":null}
+[2026-08-20T14:37:29.134Z] {"timestamp":1787236642896,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:37:29.134Z] {"timestamp":1787236643116,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:37:31.540Z] {"timestamp":1787236645303,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:37:31.540Z] {"timestamp":1787236645555,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:37:33.543Z] {"timestamp":1787236648502,"level":"WARN","args":["Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading"],"stack":null}
+[2026-08-20T14:38:06.850Z] {"timestamp":1787236680597,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:38:06.850Z] {"timestamp":1787236680839,"level":"DEBUG","args":["[vite] connected."],"stack":null}
+[2026-08-20T14:38:09.198Z] {"timestamp":1787236682948,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-08-20T14:38:09.198Z] {"timestamp":1787236683185,"level":"DEBUG","args":["[vite] connected."],"stack":null}
