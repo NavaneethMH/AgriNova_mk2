@@ -18,3 +18,13 @@
 - [x] Add explicit accessible UI failure feedback for field, weather, recommendation, irrigation, and alert actions.
 - [x] Create deduplicated irrigation reminder alerts from LLM recommendations that call for action within 6–12 hours, and cover the decision rule with a test.
 - [x] Replace manual latitude and longitude inputs with an interactive map-based field location selector in the registration and edit workflow.
+- [x] Replace point field locations with interactive polygon boundary drawing and persisted GeoJSON geometry.
+- [x] Add field-dashboard map modes for base imagery, NDVI vegetation analysis, and NDWI moisture analysis.
+- [x] Design and implement a stateless Python satellite-analysis API that accepts GeoJSON, fetches clipped Sentinel-2 data, calculates NDVI/NDWI, and returns georeferenced image overlays.
+- [ ] Prepare a containerized Cloud Run deployment contract, secure provider configuration, and end-to-end geospatial validation.
+- [x] Implement a deterministic local Sentinel-2-style NDVI/NDWI simulator to test field overlays before deploying the Python service to Cloud Run.
+- [x] Fix polygon point accumulation so every map click reliably appends a boundary vertex, and validate create/edit drawing behavior.
+- [x] Return a safe empty satellite-analysis response and add explicit NDVI/NDWI loading, empty, and failure states for first use.
+- [x] Run a discovered automated test that verifies repeated polygon-click accumulation and reopened GeoJSON boundaries, and ensure it is included in the full suite.
+- [x] Keep a persistent component-level satellite-generation failure state until the user retries or switches map mode, then verify loading, empty, and error statuses.
+- [x] Exercise and verify the NDVI/NDWI loading, empty, and generation-failure map states with focused automated coverage.

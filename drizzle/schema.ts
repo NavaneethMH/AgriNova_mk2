@@ -74,6 +74,8 @@ export const fields = mysqlTable(
       .notNull(),
     areaHectares: float("areaHectares").notNull(),
     soilType: varchar("soilType", { length: 120 }).notNull(),
+    /** Standard GeoJSON Feature or Polygon describing the managed field boundary. */
+    boundaryGeoJson: text("boundaryGeoJson"),
     latitude: float("latitude").notNull(),
     longitude: float("longitude").notNull(),
     irrigationMethod: mysqlEnum("irrigationMethod", ["drip", "sprinkler", "flood", "other"])
@@ -84,6 +86,24 @@ export const fields = mysqlTable(
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   },
   table => [index("fields_farm_idx").on(table.farmId)],
+);
+
+/** Cached metadata and overlay URLs returned by the external Sentinel-2 analysis service. */
+export const satelliteAnalyses = mysqlTable(
+  "satelliteAnalyses",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    fieldId: int("fieldId").notNull().references(() => fields.id, { onDelete: "cascade" }),
+    indexType: mysqlEnum("indexType", ["ndvi", "ndwi"]).notNull(),
+    provider: varchar("provider", { length: 80 }).notNull(),
+    overlayUrl: text("overlayUrl").notNull(),
+    boundsJson: text("boundsJson").notNull(),
+    meanValue: float("meanValue"),
+    acquiredAt: timestamp("acquiredAt"),
+    cloudPercent: float("cloudPercent"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  table => [index("satellite_analysis_field_idx").on(table.fieldId, table.createdAt)],
 );
 
 export const sensors = mysqlTable(

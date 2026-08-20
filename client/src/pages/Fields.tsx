@@ -1,4 +1,4 @@
-import { MapLocationPicker } from "@/components/agri/MapLocationPicker";
+import { FieldBoundaryDrawer, type FieldBoundary } from "../components/agri/FieldBoundaryDrawer";
 import { SectionHeading } from "@/components/agri/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -6,164 +6,28 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { trpc } from "@/lib/trpc";
-import { Edit3, MapPin, Plus, Trash2 } from "lucide-react";
+import { Edit3, MapPinned, Plus, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useLocation } from "wouter";
 
-type FieldForm = {
-  name: string;
-  cropType: string;
-  cropStage: "establishment" | "vegetative" | "flowering" | "maturity";
-  areaHectares: number;
-  soilType: string;
-  latitude: number;
-  longitude: number;
-  hasLocation: boolean;
-  irrigationMethod: "drip" | "sprinkler" | "flood" | "other";
-  farmName: string;
-  location: string;
-};
+type FieldForm = { name: string; cropType: string; cropStage: "establishment" | "vegetative" | "flowering" | "maturity"; areaHectares: number; soilType: string; boundary: FieldBoundary | null; mapCenter?: { latitude: number; longitude: number }; irrigationMethod: "drip" | "sprinkler" | "flood" | "other"; farmName: string; location: string; };
+const initialForm: FieldForm = { name: "", cropType: "", cropStage: "vegetative", areaHectares: 1, soilType: "Loam", boundary: null, irrigationMethod: "drip", farmName: "My Farm", location: "" };
 
-const initialForm: FieldForm = {
-  name: "",
-  cropType: "",
-  cropStage: "vegetative",
-  areaHectares: 1,
-  soilType: "Loam",
-  latitude: 0,
-  longitude: 0,
-  hasLocation: false,
-  irrigationMethod: "drip",
-  farmName: "My Farm",
-  location: "",
-};
+function parseBoundary(value: string | null): FieldBoundary | null { try { const parsed = value ? JSON.parse(value) : null; return parsed?.type === "Feature" && parsed.geometry?.type === "Polygon" ? parsed : null; } catch { return null; } }
 
 export default function Fields() {
-  const [location, setLocation] = useLocation();
-  const [open, setOpen] = useState(location.includes("new=1"));
-  const [editingId, setEditingId] = useState<number | null>(null);
-  const [form, setForm] = useState<FieldForm>(initialForm);
-  const utils = trpc.useUtils();
-  const fields = trpc.agri.fields.list.useQuery();
-  const create = trpc.agri.fields.create.useMutation({
-    onSuccess: () => {
-      utils.agri.fields.list.invalidate();
-      utils.agri.dashboard.invalidate();
-      close();
-      toast.success("Field registered");
-    },
-    onError: error => toast.error(error.message || "AgriNova could not register this field."),
-  });
-  const update = trpc.agri.fields.update.useMutation({
-    onSuccess: () => {
-      utils.agri.fields.list.invalidate();
-      utils.agri.dashboard.invalidate();
-      close();
-      toast.success("Field updated");
-    },
-    onError: error => toast.error(error.message || "AgriNova could not update this field."),
-  });
-  const remove = trpc.agri.fields.delete.useMutation({
-    onSuccess: () => {
-      utils.agri.fields.list.invalidate();
-      utils.agri.dashboard.invalidate();
-      toast.success("Field removed");
-    },
-    onError: error => toast.error(error.message || "AgriNova could not remove this field."),
-  });
-
-  useEffect(() => {
-    if (location.includes("new=1")) setOpen(true);
-  }, [location]);
-
-  function close() {
-    setOpen(false);
-    setEditingId(null);
-    setForm(initialForm);
-    if (location.includes("?")) setLocation("/fields");
-  }
-
-  function openEdit(field: NonNullable<typeof fields.data>[number]["field"]) {
-    setEditingId(field.id);
-    setForm({
-      name: field.name,
-      cropType: field.cropType,
-      cropStage: field.cropStage,
-      areaHectares: field.areaHectares,
-      soilType: field.soilType,
-      latitude: field.latitude,
-      longitude: field.longitude,
-      hasLocation: true,
-      irrigationMethod: field.irrigationMethod,
-      farmName: "",
-      location: "",
-    });
-    setOpen(true);
-  }
-
-  function submit(event: FormEvent) {
-    event.preventDefault();
-    if (!form.hasLocation) {
-      toast.error("Select the field’s location by clicking on the map before saving.");
-      return;
-    }
-    const { hasLocation: _hasLocation, ...values } = form;
-    const input = { ...values, farmName: form.farmName || undefined, location: form.location || undefined };
-    if (editingId) update.mutate({ fieldId: editingId, values: input });
-    else create.mutate(input);
-  }
-
-  return (
-    <div className="mx-auto max-w-[1440px] space-y-8">
-      <SectionHeading
-        eyebrow="Field registry"
-        title="Manage the land behind every decision."
-        description="Keep the crop, soil, scale, and map-selected field location accurate so AgriNova can offer field-specific irrigation guidance."
-        action={<Button className="min-h-12 gap-2 bg-[#2D6A4F] text-white hover:bg-[#1b4332]" onClick={() => setOpen(true)}><Plus className="h-4 w-4" /> Add field</Button>}
-      />
-
-      <div className="overflow-hidden rounded-2xl border border-[#dce6dc] bg-white">
-        <div className="grid grid-cols-[minmax(190px,1.4fr)_repeat(4,minmax(110px,1fr))_110px] gap-4 border-b border-[#e5ebe6] bg-[#f6f8f5] px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.13em] text-[#64766b]">
-          <span>Field</span><span>Crop / stage</span><span>Area</span><span>Soil</span><span>Map location</span><span className="text-right">Actions</span>
-        </div>
-        {fields.isLoading ? <div className="p-6 text-sm text-[#607068]">Loading fields…</div> : null}
-        {!fields.isLoading && fields.data?.length ? fields.data.map(item => (
-          <div key={item.field.id} className="grid grid-cols-[minmax(190px,1.4fr)_repeat(4,minmax(110px,1fr))_110px] items-center gap-4 border-b border-[#eef1ee] px-5 py-4 last:border-0">
-            <div><button className="text-left font-semibold text-[#123522] hover:text-[#2D6A4F]" onClick={() => setLocation(`/fields/${item.field.id}`)}>{item.field.name}</button><p className="mt-1 text-xs text-[#718078]">{item.farmName}</p></div>
-            <div><p className="text-sm text-[#31463a]">{item.field.cropType}</p><p className="mt-1 text-xs capitalize text-[#718078]">{item.field.cropStage}</p></div>
-            <p className="text-sm tabular-nums text-[#31463a]">{item.field.areaHectares.toFixed(1)} ha</p>
-            <p className="text-sm text-[#31463a]">{item.field.soilType}</p>
-            <p className="font-mono text-[11px] text-[#61736a]">{item.field.latitude.toFixed(3)}, {item.field.longitude.toFixed(3)}</p>
-            <div className="flex justify-end gap-1"><Button variant="ghost" size="icon" aria-label={`Edit ${item.field.name}`} onClick={() => openEdit(item.field)}><Edit3 className="h-4 w-4 text-[#2D6A4F]" /></Button><Button variant="ghost" size="icon" aria-label={`Delete ${item.field.name}`} onClick={() => { if (window.confirm(`Delete ${item.field.name}? This also removes its readings and irrigation history.`)) remove.mutate({ fieldId: item.field.id }); }}><Trash2 className="h-4 w-4 text-[#a14332]" /></Button></div>
-          </div>
-        )) : null}
-        {!fields.isLoading && !fields.data?.length ? <div className="agri-grid p-10 text-center"><MapPin className="mx-auto h-7 w-7 text-[#78a584]" /><p className="mt-3 text-sm text-[#5f7166]">No fields are registered yet.</p></div> : null}
-      </div>
-
-      <FieldDialog open={open} onOpenChange={value => value ? setOpen(true) : close()} form={form} setForm={setForm} onSubmit={submit} isEditing={Boolean(editingId)} pending={create.isPending || update.isPending} />
-    </div>
-  );
+  const [location, setLocation] = useLocation(); const [open, setOpen] = useState(location.includes("new=1")); const [editingId, setEditingId] = useState<number | null>(null); const [form, setForm] = useState<FieldForm>(initialForm); const utils = trpc.useUtils(); const fields = trpc.agri.fields.list.useQuery();
+  const close = () => { setOpen(false); setEditingId(null); setForm(initialForm); if (location.includes("?")) setLocation("/fields"); };
+  const create = trpc.agri.fields.create.useMutation({ onSuccess: () => { utils.agri.fields.list.invalidate(); utils.agri.dashboard.invalidate(); close(); toast.success("Field registered with a GeoJSON boundary"); }, onError: error => toast.error(error.message || "AgriNova could not register this field.") });
+  const update = trpc.agri.fields.update.useMutation({ onSuccess: () => { utils.agri.fields.list.invalidate(); utils.agri.dashboard.invalidate(); close(); toast.success("Field boundary updated"); }, onError: error => toast.error(error.message || "AgriNova could not update this field.") });
+  const remove = trpc.agri.fields.delete.useMutation({ onSuccess: () => { utils.agri.fields.list.invalidate(); utils.agri.dashboard.invalidate(); toast.success("Field removed"); }, onError: error => toast.error(error.message || "AgriNova could not remove this field.") });
+  useEffect(() => { if (location.includes("new=1")) setOpen(true); }, [location]);
+  function openEdit(field: NonNullable<typeof fields.data>[number]["field"]) { setEditingId(field.id); setForm({ name: field.name, cropType: field.cropType, cropStage: field.cropStage, areaHectares: field.areaHectares, soilType: field.soilType, boundary: parseBoundary(field.boundaryGeoJson), mapCenter: { latitude: field.latitude, longitude: field.longitude }, irrigationMethod: field.irrigationMethod, farmName: "", location: "" }); setOpen(true); }
+  function submit(event: FormEvent) { event.preventDefault(); if (!form.boundary) { toast.error("Draw at least three vertices around the field before saving."); return; } const { boundary, mapCenter: _mapCenter, ...rest } = form; const values = { ...rest, boundary, farmName: form.farmName || undefined, location: form.location || undefined }; if (editingId) update.mutate({ fieldId: editingId, values }); else create.mutate(values); }
+  return <div className="mx-auto max-w-[1440px] space-y-8"><SectionHeading eyebrow="Field registry" title="Manage the land behind every decision." description="Draw the exact field boundary to give AgriNova the geometry needed for crop-water analysis and satellite overlays." action={<Button className="min-h-12 gap-2 bg-[#2D6A4F] text-white hover:bg-[#1b4332]" onClick={() => setOpen(true)}><Plus className="h-4 w-4" /> Add field</Button>} /><div className="overflow-hidden rounded-2xl border border-[#dce6dc] bg-white"><div className="grid grid-cols-[minmax(190px,1.4fr)_repeat(4,minmax(110px,1fr))_110px] gap-4 border-b border-[#e5ebe6] bg-[#f6f8f5] px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.13em] text-[#64766b]"><span>Field</span><span>Crop / stage</span><span>Area</span><span>Soil</span><span>Boundary</span><span className="text-right">Actions</span></div>{fields.isLoading ? <div className="p-6 text-sm text-[#607068]">Loading fields…</div> : null}{!fields.isLoading && fields.data?.length ? fields.data.map(item => <div key={item.field.id} className="grid grid-cols-[minmax(190px,1.4fr)_repeat(4,minmax(110px,1fr))_110px] items-center gap-4 border-b border-[#eef1ee] px-5 py-4 last:border-0"><div><button className="text-left font-semibold text-[#123522] hover:text-[#2D6A4F]" onClick={() => setLocation(`/fields/${item.field.id}`)}>{item.field.name}</button><p className="mt-1 text-xs text-[#718078]">{item.farmName}</p></div><div><p className="text-sm text-[#31463a]">{item.field.cropType}</p><p className="mt-1 text-xs capitalize text-[#718078]">{item.field.cropStage}</p></div><p className="text-sm tabular-nums text-[#31463a]">{item.field.areaHectares.toFixed(1)} ha</p><p className="text-sm text-[#31463a]">{item.field.soilType}</p><p className="flex items-center gap-1.5 text-xs text-[#607068]"><MapPinned className="h-3.5 w-3.5 text-[#2D6A4F]" />{item.field.boundaryGeoJson ? "GeoJSON polygon" : "Legacy point"}</p><div className="flex justify-end gap-1"><Button variant="ghost" size="icon" aria-label={`Edit ${item.field.name}`} onClick={() => openEdit(item.field)}><Edit3 className="h-4 w-4 text-[#2D6A4F]" /></Button><Button variant="ghost" size="icon" aria-label={`Delete ${item.field.name}`} onClick={() => { if (window.confirm(`Delete ${item.field.name}? This also removes its readings and irrigation history.`)) remove.mutate({ fieldId: item.field.id }); }}><Trash2 className="h-4 w-4 text-[#a14332]" /></Button></div></div>) : null}{!fields.isLoading && !fields.data?.length ? <div className="agri-grid p-10 text-center"><MapPinned className="mx-auto h-7 w-7 text-[#78a584]" /><p className="mt-3 text-sm text-[#5f7166]">No fields are registered yet.</p></div> : null}</div><FieldDialog open={open} onOpenChange={value => value ? setOpen(true) : close()} form={form} setForm={setForm} onSubmit={submit} isEditing={Boolean(editingId)} pending={create.isPending || update.isPending} /></div>;
 }
 
-function FieldDialog({ open, onOpenChange, form, setForm, onSubmit, isEditing, pending }: { open: boolean; onOpenChange: (value: boolean) => void; form: FieldForm; setForm: React.Dispatch<React.SetStateAction<FieldForm>>; onSubmit: (event: FormEvent) => void; isEditing: boolean; pending: boolean }) {
-  const set = <K extends keyof FieldForm>(key: K, value: FieldForm[K]) => setForm(previous => ({ ...previous, [key]: value }));
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
-        <DialogHeader><DialogTitle className="text-xl text-[#012d1d]">{isEditing ? "Edit field" : "Register a field"}</DialogTitle><DialogDescription>Provide the essentials AgriNova needs for field-specific water-stress analysis, then select the field centre on the map.</DialogDescription></DialogHeader>
-        <form className="mt-3 grid gap-5" onSubmit={onSubmit}>
-          <div className="grid gap-4 sm:grid-cols-2"><FormInput label="Field name" value={form.name} onChange={value => set("name", value)} required /><FormInput label="Crop type" value={form.cropType} onChange={value => set("cropType", value)} required /></div>
-          <div className="grid gap-4 sm:grid-cols-3"><FormInput label="Area (hectares)" type="number" value={String(form.areaHectares)} onChange={value => set("areaHectares", Number(value))} required /><FormInput label="Soil type" value={form.soilType} onChange={value => set("soilType", value)} required /><FormSelect label="Crop stage" value={form.cropStage} onValueChange={value => set("cropStage", value as FieldForm["cropStage"])} options={["establishment", "vegetative", "flowering", "maturity"]} /></div>
-          <div className="grid gap-4 sm:grid-cols-2"><FormSelect label="Irrigation method" value={form.irrigationMethod} onValueChange={value => set("irrigationMethod", value as FieldForm["irrigationMethod"])} options={["drip", "sprinkler", "flood", "other"]} />{!isEditing ? <FormInput label="Farm name" value={form.farmName} onChange={value => set("farmName", value)} /> : null}</div>
-          {!isEditing ? <FormInput label="Farm location (optional)" value={form.location} onChange={value => set("location", value)} /> : null}
-          <MapLocationPicker latitude={form.latitude} longitude={form.longitude} hasLocation={form.hasLocation} onChange={coordinates => setForm(previous => ({ ...previous, ...coordinates, hasLocation: true }))} />
-          <div className="flex justify-end gap-3 border-t border-[#e8eee8] pt-5"><Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button><Button type="submit" disabled={pending} className="bg-[#2D6A4F] text-white hover:bg-[#1b4332]">{pending ? "Saving…" : isEditing ? "Save changes" : "Register field"}</Button></div>
-        </form>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
+function FieldDialog({ open, onOpenChange, form, setForm, onSubmit, isEditing, pending }: { open: boolean; onOpenChange: (value: boolean) => void; form: FieldForm; setForm: React.Dispatch<React.SetStateAction<FieldForm>>; onSubmit: (event: FormEvent) => void; isEditing: boolean; pending: boolean }) { const set = <K extends keyof FieldForm>(key: K, value: FieldForm[K]) => setForm(previous => ({ ...previous, [key]: value })); return <Dialog open={open} onOpenChange={onOpenChange}><DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl"><DialogHeader><DialogTitle className="text-xl text-[#012d1d]">{isEditing ? "Edit field" : "Register a field"}</DialogTitle><DialogDescription>Set the crop context, then draw the boundary that will be stored as standard GeoJSON.</DialogDescription></DialogHeader><form className="mt-3 grid gap-5" onSubmit={onSubmit}><div className="grid gap-4 sm:grid-cols-2"><FormInput label="Field name" value={form.name} onChange={value => set("name", value)} required /><FormInput label="Crop type" value={form.cropType} onChange={value => set("cropType", value)} required /></div><div className="grid gap-4 sm:grid-cols-3"><FormInput label="Area (hectares)" type="number" value={String(form.areaHectares)} onChange={value => set("areaHectares", Number(value))} required /><FormInput label="Soil type" value={form.soilType} onChange={value => set("soilType", value)} required /><FormSelect label="Crop stage" value={form.cropStage} onValueChange={value => set("cropStage", value as FieldForm["cropStage"])} options={["establishment", "vegetative", "flowering", "maturity"]} /></div><div className="grid gap-4 sm:grid-cols-2"><FormSelect label="Irrigation method" value={form.irrigationMethod} onValueChange={value => set("irrigationMethod", value as FieldForm["irrigationMethod"])} options={["drip", "sprinkler", "flood", "other"]} />{!isEditing ? <FormInput label="Farm name" value={form.farmName} onChange={value => set("farmName", value)} /> : null}</div>{!isEditing ? <FormInput label="Farm location (optional)" value={form.location} onChange={value => set("location", value)} /> : null}<FieldBoundaryDrawer boundary={form.boundary} initialCenter={form.mapCenter} onChange={boundary => set("boundary", boundary)} /><div className="flex justify-end gap-3 border-t border-[#e8eee8] pt-5"><Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button><Button type="submit" disabled={pending} className="bg-[#2D6A4F] text-white hover:bg-[#1b4332]">{pending ? "Saving…" : isEditing ? "Save changes" : "Register field"}</Button></div></form></DialogContent></Dialog>; }
 function FormInput({ label, value, onChange, type = "text", required = false }: { label: string; value: string; onChange: (value: string) => void; type?: string; required?: boolean }) { return <div className="grid gap-2"><Label>{label}</Label><Input value={value} type={type} step={type === "number" ? "any" : undefined} onChange={event => onChange(event.target.value)} required={required} /></div>; }
 function FormSelect({ label, value, onValueChange, options }: { label: string; value: string; onValueChange: (value: string) => void; options: string[] }) { return <div className="grid gap-2"><Label>{label}</Label><Select value={value} onValueChange={onValueChange}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent>{options.map(option => <SelectItem key={option} value={option} className="capitalize">{option}</SelectItem>)}</SelectContent></Select></div>; }

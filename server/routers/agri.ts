@@ -13,6 +13,8 @@ import {
   updateField,
 } from "../agri/repository";
 import { createAiRecommendation, getLatestRecommendation } from "../agri/recommendations";
+import { fieldBoundarySchema } from "../agri/geojson";
+import { analyzeFieldSatellite, getLatestSatelliteAnalysis } from "../agri/satellite";
 import { getStoredWeather, refreshFieldWeather } from "../agri/weather";
 import { and, desc, eq } from "drizzle-orm";
 import { alerts, farms, fields, scheduledJobs } from "../../drizzle/schema";
@@ -25,14 +27,14 @@ import { protectedProcedure, router } from "../_core/trpc";
 
 const cropStageSchema = z.enum(["establishment", "vegetative", "flowering", "maturity"]);
 const irrigationMethodSchema = z.enum(["drip", "sprinkler", "flood", "other"]);
+const satelliteIndexSchema = z.enum(["ndvi", "ndwi"]);
 const fieldInput = z.object({
   name: z.string().trim().min(2).max(160),
   cropType: z.string().trim().min(2).max(120),
   cropStage: cropStageSchema,
   areaHectares: z.number().positive().max(100_000),
   soilType: z.string().trim().min(2).max(120),
-  latitude: z.number().min(-90).max(90),
-  longitude: z.number().min(-180).max(180),
+  boundary: fieldBoundarySchema,
   irrigationMethod: irrigationMethodSchema,
   farmName: z.string().trim().min(2).max(160).optional(),
   location: z.string().trim().max(255).optional(),
@@ -113,6 +115,18 @@ export const agriRouter = router({
     generate: protectedProcedure.input(z.object({ fieldId: z.number().int().positive() })).mutation(async ({ ctx, input }) =>
       requireOwned(await createAiRecommendation(ctx.user.id, input.fieldId)),
     ),
+  }),
+  satellite: router({
+    latest: protectedProcedure
+      .input(z.object({ fieldId: z.number().int().positive(), indexType: satelliteIndexSchema }))
+      .query(async ({ ctx, input }) => {
+        const result = await getLatestSatelliteAnalysis(ctx.user.id, input.fieldId, input.indexType);
+        if (result === undefined) throw new TRPCError({ code: "NOT_FOUND", message: "This field was not found or is not available to this account." });
+        return result;
+      }),
+    analyze: protectedProcedure
+      .input(z.object({ fieldId: z.number().int().positive(), indexType: satelliteIndexSchema }))
+      .mutation(async ({ ctx, input }) => requireOwned(await analyzeFieldSatellite(ctx.user.id, input.fieldId, input.indexType))),
   }),
   alerts: router({
     list: protectedProcedure.query(async ({ ctx }) => {

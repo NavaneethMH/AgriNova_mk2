@@ -12,6 +12,7 @@ import {
 } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { baselineIrrigationAdvice, calculateStress, needsIrrigationReminder } from "./stressEngine";
+import { centroidFromBoundary, type FieldBoundary } from "./geojson";
 
 export type FieldInput = {
   name: string;
@@ -19,8 +20,7 @@ export type FieldInput = {
   cropStage: "establishment" | "vegetative" | "flowering" | "maturity";
   areaHectares: number;
   soilType: string;
-  latitude: number;
-  longitude: number;
+  boundary: FieldBoundary;
   irrigationMethod: "drip" | "sprinkler" | "flood" | "other";
   farmName?: string;
   location?: string;
@@ -81,6 +81,7 @@ export async function createField(userId: number, input: FieldInput) {
   const db = await getDb();
   if (!db) dbUnavailable();
   const farm = await getOrCreateFarm(userId, input.farmName, input.location);
+  const centroid = centroidFromBoundary(input.boundary);
 
   const [created] = await db!
     .insert(fields)
@@ -91,8 +92,9 @@ export async function createField(userId: number, input: FieldInput) {
       cropStage: input.cropStage,
       areaHectares: input.areaHectares,
       soilType: input.soilType,
-      latitude: input.latitude,
-      longitude: input.longitude,
+      boundaryGeoJson: JSON.stringify(input.boundary),
+      latitude: centroid.latitude,
+      longitude: centroid.longitude,
       irrigationMethod: input.irrigationMethod,
     })
     .$returningId();
@@ -107,6 +109,7 @@ export async function updateField(userId: number, fieldId: number, input: Partia
   if (!db) dbUnavailable();
   const field = await getOwnedField(userId, fieldId);
   if (!field) return undefined;
+  const centroid = input.boundary ? centroidFromBoundary(input.boundary) : null;
 
   await db!
     .update(fields)
@@ -116,8 +119,8 @@ export async function updateField(userId: number, fieldId: number, input: Partia
       ...(input.cropStage !== undefined ? { cropStage: input.cropStage } : {}),
       ...(input.areaHectares !== undefined ? { areaHectares: input.areaHectares } : {}),
       ...(input.soilType !== undefined ? { soilType: input.soilType } : {}),
-      ...(input.latitude !== undefined ? { latitude: input.latitude } : {}),
-      ...(input.longitude !== undefined ? { longitude: input.longitude } : {}),
+      ...(input.boundary !== undefined ? { boundaryGeoJson: JSON.stringify(input.boundary) } : {}),
+      ...(centroid ? { latitude: centroid.latitude, longitude: centroid.longitude } : {}),
       ...(input.irrigationMethod !== undefined ? { irrigationMethod: input.irrigationMethod } : {}),
     })
     .where(eq(fields.id, fieldId));

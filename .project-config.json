@@ -1,0 +1,46 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "server",
+    "db",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://4YS4SJBcJERs38e.ab1d8e0eb756:HRAsLyt1fz02GtZn730b@gateway06.us-east-1.prod.aws.tidbcloud.com:4000/Gg7Zcg9Nxpy9CVJ7UGCbgp?ssl={\"rejectUnauthorized\":true}",
+    "DRIZZLE_DATABASE_URL": "mysql://4YS4SJBcJERs38e.ab1d8e0eb756:HRAsLyt1fz02GtZn730b@gateway06.us-east-1.prod.aws.tidbcloud.com:4000/Gg7Zcg9Nxpy9CVJ7UGCbgp?ssl={\"rejectUnauthorized\":true}",
+    "MANUS_WEBDEV_PROJECT_ID": "Gg7Zcg9Nxpy9CVJ7UGCbgp"
+  },
+  "experiments": [
+    "no_db_push"
+  ],
+  "git_remote": {
+    "repo_url": "https://7f0548f6b28a1758d9bf7be630d36cb4.artifacts.cloudflare.net/git/prod/Gg7Zcg9Nxpy9CVJ7UGCbgp.git",
+    "expiration": "2026-08-21T13:58:00.900Z",
+    "token": "art_v2_x_3f56e4e3f687e5e8852d16dbe7fdb83a53a2a666?expires=1787320680",
+    "backend": "GIT_BACKEND_ARTIFACTS"
+  },
+  "name": "agrinova",
+  "path": "/home/ubuntu/agrinova",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "7wzBbpoZ8MNUYfa8JwRvPx",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "FevyM2VZhSnmrRFsMeoPLX",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Navaneeth MH",
+    "OWNER_OPEN_ID": "amweNjLZoifk2tt3stKUBC",
+    "SATELLITE_ANALYSIS_API_KEY": "7oZ7gAKHClL0pcIEXAIsVAUoPMv9KWa7",
+    "SATELLITE_ANALYSIS_URL": "[https://sh.dataspace.copernicus.eu](https://sh.dataspace.copernicus.eu)",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "c762ac44-80a9-4095-83f3-6a7a72ffb541",
+    "VITE_APP_ID": "Gg7Zcg9Nxpy9CVJ7UGCbgp",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663576361611/fcylwOrQlbPKrXPa.png",
+    "VITE_APP_TITLE": "AgriNova",
+    "VITE_FRONTEND_FORGE_API_KEY": "iVhHJdz7VabJ727Cp5a8Ky",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}

@@ -1,0 +1,266 @@
+[2026-08-19T16:15:04.687Z] Starting dev server with command: pnpm run dev
+[2026-08-19T16:15:06.822Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-19T16:15:06.822Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-19T16:15:08.556Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:15:08.799Z] Server running on http://localhost:3000/
+[2026-08-19T16:23:39.623Z] 4:23:39 PM [tsx] change in ./drizzle/schema.ts Restarting...
+[2026-08-19T16:23:41.234Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:23:41.469Z] Server running on http://localhost:3000/
+[2026-08-19T16:25:39.768Z] 4:25:39 PM [tsx] change in ./server/routers.ts Restarting...
+[2026-08-19T16:25:40.113Z] c
+[2026-08-19T16:25:40.113Z] node:internal/modules/run_main:122
+[2026-08-19T16:25:40.113Z] triggerUncaughtException(
+[2026-08-19T16:25:40.113Z] ^
+[2026-08-19T16:25:40.113Z] Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/ubuntu/agrinova/server/routers/agri' imported from /home/ubuntu/agrinova/server/routers.ts
+[2026-08-19T16:25:40.113Z] at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+[2026-08-19T16:25:40.113Z] at moduleResolve (node:internal/modules/esm/resolve:932:10)
+[2026-08-19T16:25:40.113Z] at defaultResolve (node:internal/modules/esm/resolve:1056:11)
+[2026-08-19T16:25:40.113Z] at nextResolve (node:internal/modules/esm/hooks:748:28)
+[2026-08-19T16:25:40.113Z] at resolveBase (file:///home/ubuntu/agrinova/node_modules/.pnpm/tsx@4.20.6/node_modules/tsx/dist/esm/index.mjs?1787156739910:2:3744)
+[2026-08-19T16:25:40.113Z] at async resolveDirectory (file:///home/ubuntu/agrinova/node_modules/.pnpm/tsx@4.20.6/node_modules/tsx/dist/esm/index.mjs?1787156739910:2:4237)
+[2026-08-19T16:25:40.113Z] at async resolve (file:///home/ubuntu/agrinova/node_modules/.pnpm/tsx@4.20.6/node_modules/tsx/dist/esm/index.mjs?1787156739910:2:5355)
+[2026-08-19T16:25:40.113Z] at async nextResolve (node:internal/modules/esm/hooks:748:22)
+[2026-08-19T16:25:40.113Z] at async Hooks.resolve (node:internal/modules/esm/hooks:240:24)
+[2026-08-19T16:25:40.113Z] at async handleMessage (node:internal/modules/esm/worker:199:18) {
+[2026-08-19T16:25:40.113Z] code: 'ERR_MODULE_NOT_FOUND',
+[2026-08-19T16:25:40.113Z] url: 'file:///home/ubuntu/agrinova/server/routers/agri'
+[2026-08-19T16:25:40.113Z] }
+[2026-08-19T16:25:40.113Z] Node.js v22.13.0
+[2026-08-19T16:26:04.424Z] ELIFECYCLE  Command failed.
+[2026-08-19T16:26:04.441Z] Dev server exited with code -1
+[2026-08-19T16:26:05.532Z] Starting dev server with command: pnpm run dev
+[2026-08-19T16:26:06.230Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-19T16:26:06.230Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-19T16:26:07.740Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:26:07.958Z] Server running on http://localhost:3000/
+[2026-08-19T16:27:53.525Z] 4:27:53 PM [tsx] change in ./server/_core/index.ts Restarting...
+[2026-08-19T16:27:55.104Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:27:55.340Z] Server running on http://localhost:3000/
+[2026-08-19T16:28:09.930Z] 4:28:09 PM [tsx] change in ./server/agri/summaryJob.ts Restarting...
+[2026-08-19T16:28:11.442Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:28:11.664Z] Server running on http://localhost:3000/
+[2026-08-19T16:28:23.055Z] ELIFECYCLE  Command failed.
+[2026-08-19T16:28:23.122Z] Dev server exited with code -1
+[2026-08-19T16:28:24.160Z] Starting dev server with command: pnpm run dev
+[2026-08-19T16:28:24.877Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-19T16:28:24.877Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-19T16:28:26.518Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:28:26.756Z] Server running on http://localhost:3000/
+[2026-08-19T16:31:12.017Z] 4:31:12 PM [vite] (client) page reload index.html
+[2026-08-19T16:31:17.610Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-19T16:31:19.992Z] 4:31:19 PM [vite] (client) ✨ new dependencies optimized: recharts, @radix-ui/react-avatar, @radix-ui/react-dropdown-menu, @radix-ui/react-dialog, @radix-ui/react-label, @radix-ui/react-select, @radix-ui/react-separator
+[2026-08-19T16:31:19.992Z] 4:31:19 PM [vite] (client) ✨ optimized dependencies changed. reloading
+[2026-08-19T16:31:22.786Z] [Auth] Missing session cookie
+[2026-08-19T16:31:56.323Z] 4:31:56 PM [vite] (client) hmr update /src/pages/FieldDetail.tsx
+[2026-08-19T16:31:56.534Z] 4:31:56 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:31:56.534Z] Plugin: vite:esbuild
+[2026-08-19T16:31:56.534Z] File: /home/ubuntu/agrinova/client/src/pages/FieldDetail.tsx
+[2026-08-19T16:31:56.534Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:31:56.534Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:31:56.534Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:31:56.534Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:31:56.534Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:31:56.534Z] at new Promise (<anonymous>)
+[2026-08-19T16:31:56.534Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:31:56.534Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:31:56.534Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:31:56.534Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:31:56.534Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:31:56.535Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:31:56.535Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:31:56.550Z] 4:31:56 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:31:56.550Z] Plugin: vite:esbuild
+[2026-08-19T16:31:56.550Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=FMbnzPg-F_E1MnuxW-kcm
+[2026-08-19T16:31:59.654Z] 4:31:59 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:31:59.654Z] Plugin: vite:esbuild
+[2026-08-19T16:31:59.654Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=NGL4vENjlO3dvGqrVkiBk
+[2026-08-19T16:32:00.050Z] 4:32:00 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:32:00.050Z] Plugin: vite:esbuild
+[2026-08-19T16:32:00.050Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=NGL4vENjlO3dvGqrVkiBk
+[2026-08-19T16:32:00.050Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:32:00.050Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:32:00.050Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:32:00.050Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:32:00.050Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:32:00.050Z] at new Promise (<anonymous>)
+[2026-08-19T16:32:00.050Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:32:00.050Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:32:00.050Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:32:00.050Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:32:00.050Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:32:00.050Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:32:00.050Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:32:00.060Z] 4:32:00 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:00.060Z] Plugin: vite:esbuild
+[2026-08-19T16:32:00.060Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=iVzQkK8sGH0i1iro254QQ
+[2026-08-19T16:32:01.246Z] 4:32:01 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:01.246Z] Plugin: vite:esbuild
+[2026-08-19T16:32:01.246Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=gitllFc0L7fFlvF_bnUNx
+[2026-08-19T16:32:01.873Z] 4:32:01 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:01.873Z] Plugin: vite:esbuild
+[2026-08-19T16:32:01.873Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=ypLIkavPrJPHCTekiHgi3
+[2026-08-19T16:32:02.082Z] 4:32:02 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:32:02.082Z] Plugin: vite:esbuild
+[2026-08-19T16:32:02.082Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=ypLIkavPrJPHCTekiHgi3
+[2026-08-19T16:32:02.082Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:32:02.082Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:32:02.082Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:32:02.082Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:32:02.082Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:32:02.082Z] at new Promise (<anonymous>)
+[2026-08-19T16:32:02.082Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:32:02.082Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:32:02.082Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:32:02.082Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:32:02.082Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:32:02.082Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:32:02.082Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:32:02.094Z] 4:32:02 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:02.094Z] Plugin: vite:esbuild
+[2026-08-19T16:32:02.094Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=jPjT6MDnecw8oEfxAN75F
+[2026-08-19T16:32:08.417Z] 4:32:08 PM [vite] (client) hmr update /src/pages/Home.tsx
+[2026-08-19T16:32:08.520Z] 4:32:08 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:08.520Z] Plugin: vite:esbuild
+[2026-08-19T16:32:08.520Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=MF8vb1HerO26fsCt97Qgr
+[2026-08-19T16:32:08.929Z] 4:32:08 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:32:08.929Z] Plugin: vite:esbuild
+[2026-08-19T16:32:08.929Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=MF8vb1HerO26fsCt97Qgr
+[2026-08-19T16:32:08.929Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:32:08.929Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:32:08.929Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:32:08.929Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:32:08.929Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:32:08.929Z] at new Promise (<anonymous>)
+[2026-08-19T16:32:08.929Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:32:08.929Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:32:08.929Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:32:08.929Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:32:08.929Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:32:08.929Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:32:08.929Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:32:08.941Z] 4:32:08 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:08.941Z] Plugin: vite:esbuild
+[2026-08-19T16:32:08.941Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=silqoQJmPxXDNqgpejvgN
+[2026-08-19T16:32:11.188Z] 4:32:11 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:11.188Z] Plugin: vite:esbuild
+[2026-08-19T16:32:11.188Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=0NP6wfDKLzX9M1yCXPe8A
+[2026-08-19T16:32:11.532Z] 4:32:11 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:32:11.532Z] Plugin: vite:esbuild
+[2026-08-19T16:32:11.532Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=0NP6wfDKLzX9M1yCXPe8A
+[2026-08-19T16:32:11.532Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:32:11.532Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:32:11.532Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:32:11.532Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:32:11.532Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:32:11.532Z] at new Promise (<anonymous>)
+[2026-08-19T16:32:11.532Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:32:11.532Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:32:11.532Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:32:11.532Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:32:11.532Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:32:11.532Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:32:11.532Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:32:11.541Z] 4:32:11 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:11.541Z] Plugin: vite:esbuild
+[2026-08-19T16:32:11.541Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=YLSoXYoXlTyRMCRgTwEiK
+[2026-08-19T16:32:12.707Z] 4:32:12 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:12.707Z] Plugin: vite:esbuild
+[2026-08-19T16:32:12.707Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=ecqXayZQddZSi7IauC90L
+[2026-08-19T16:32:13.343Z] 4:32:13 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:13.343Z] Plugin: vite:esbuild
+[2026-08-19T16:32:13.343Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=m5r46_5M_HPOQgMQaobfS
+[2026-08-19T16:32:13.910Z] 4:32:13 PM [vite] Internal server error: The service is no longer running
+[2026-08-19T16:32:13.911Z] Plugin: vite:esbuild
+[2026-08-19T16:32:13.911Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=m5r46_5M_HPOQgMQaobfS
+[2026-08-19T16:32:13.911Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:718:38
+[2026-08-19T16:32:13.911Z] at sendRequest (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:599:36)
+[2026-08-19T16:32:13.911Z] at start (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:717:9)
+[2026-08-19T16:32:13.911Z] at Object.transform2 [as transform] (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:778:5)
+[2026-08-19T16:32:13.911Z] at /home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:77
+[2026-08-19T16:32:13.911Z] at new Promise (<anonymous>)
+[2026-08-19T16:32:13.911Z] at Object.transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:2043:36)
+[2026-08-19T16:32:13.911Z] at transform (/home/ubuntu/agrinova/node_modules/.pnpm/esbuild@0.25.10/node_modules/esbuild/lib/main.js:1878:62)
+[2026-08-19T16:32:13.911Z] at transformWithEsbuild (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6297:24)
+[2026-08-19T16:32:13.911Z] at async TransformPluginContext.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:6347:20)
+[2026-08-19T16:32:13.911Z] at async EnvironmentPluginContainer.transform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:31018:14)
+[2026-08-19T16:32:13.911Z] at async loadAndTransform (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:26143:26)
+[2026-08-19T16:32:13.911Z] at async viteTransformMiddleware (/home/ubuntu/agrinova/node_modules/.pnpm/vite@7.1.9_@types+node@24.7.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.20.6/node_modules/vite/dist/node/chunks/dep-Chhhsdoe.js:27221:20)
+[2026-08-19T16:32:13.920Z] 4:32:13 PM [vite] (client) Pre-transform error: The service is no longer running
+[2026-08-19T16:32:13.921Z] Plugin: vite:esbuild
+[2026-08-19T16:32:13.921Z] File: /home/ubuntu/agrinova/client/src/main.tsx?v=WXXO20xedrZCYRCxyCyKr
+[2026-08-19T16:32:17.838Z] ELIFECYCLE  Command failed.
+[2026-08-19T16:32:17.894Z] Dev server exited with code -1
+[2026-08-19T16:32:18.954Z] Starting dev server with command: pnpm run dev
+[2026-08-19T16:32:19.687Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-19T16:32:19.687Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-19T16:32:21.375Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:32:21.632Z] Server running on http://localhost:3000/
+[2026-08-19T16:32:22.587Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-19T16:33:19.138Z] 4:33:19 PM [vite] (client) hmr update /src/index.css
+[2026-08-19T16:34:29.443Z] 4:34:29 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+[2026-08-19T16:34:29.451Z] 4:34:29 PM [vite] (client) hmr update /src/pages/Home.tsx, /src/index.css
+[2026-08-19T16:34:31.650Z] 4:34:31 PM [vite] (client) hmr update /src/components/DashboardLayout.tsx, /src/index.css
+[2026-08-19T16:34:33.495Z] 4:34:33 PM [vite] (client) hmr update /src/index.css
+[2026-08-19T16:35:07.064Z] 4:35:07 PM [vite] (client) hmr update /src/pages/Fields.tsx, /src/index.css
+[2026-08-19T16:36:21.510Z] 4:36:21 PM [tsx] change in ./server/agri/recommendations.ts Restarting...
+[2026-08-19T16:36:23.191Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:36:23.428Z] Server running on http://localhost:3000/
+[2026-08-19T16:36:54.588Z] 4:36:54 PM [tsx] change in ./server/routers/agri.ts Restarting...
+[2026-08-19T16:36:56.247Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:36:56.483Z] Server running on http://localhost:3000/
+[2026-08-19T16:38:42.764Z] 4:38:42 PM [tsx] change in ./server/agri/stressEngine.ts Restarting...
+[2026-08-19T16:38:43.159Z] c4:38:43 PM [tsx] change in ./server/agri/repository.ts Restarting...
+[2026-08-19T16:38:44.945Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:38:45.199Z] Server running on http://localhost:3000/
+[2026-08-19T16:40:02.612Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-19T16:40:32.891Z] 4:40:32 PM [tsx] change in ./server/agri/recommendations.ts Restarting...
+[2026-08-19T16:40:34.548Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:40:34.779Z] Server running on http://localhost:3000/
+[2026-08-19T16:40:46.847Z] 4:40:46 PM [tsx] change in ./server/agri/recommendations.ts Restarting...
+[2026-08-19T16:40:48.504Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-19T16:40:48.728Z] Server running on http://localhost:3000/
+[2026-08-19T16:41:45.249Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-19T16:47:50.759Z] 4:47:50 PM [vite] (client) hmr update /src/pages/Fields.tsx, /src/index.css
+[2026-08-19T16:48:01.602Z] 4:48:01 PM [vite] (client) hmr update /src/index.css, /src/components/agri/MapLocationPicker.tsx
+[2026-08-20T13:55:43.917Z] 1:55:43 PM [tsx] change in ./server/routers/agri.ts Restarting...
+[2026-08-20T13:55:44.293Z] c1:55:44 PM [tsx] change in ./drizzle/schema.ts Restarting...
+[2026-08-20T13:55:45.900Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T13:55:46.135Z] Server running on http://localhost:3000/
+[2026-08-20T13:56:09.159Z] 1:56:09 PM [tsx] change in ./server/agri/repository.ts Restarting...
+[2026-08-20T13:56:10.727Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T13:56:10.998Z] Server running on http://localhost:3000/
+[2026-08-20T14:05:29.549Z] ELIFECYCLE  Command failed.
+[2026-08-20T14:05:29.568Z] Dev server exited with code -1
+[2026-08-20T14:05:30.655Z] Starting dev server with command: pnpm run dev
+[2026-08-20T14:05:31.429Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-20T14:05:31.429Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-20T14:05:33.043Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:05:33.275Z] Server running on http://localhost:3000/
+[2026-08-20T14:08:08.748Z] ELIFECYCLE  Command failed.
+[2026-08-20T14:08:08.806Z] Dev server exited with code -1
+[2026-08-20T14:08:09.854Z] Starting dev server with command: pnpm run dev
+[2026-08-20T14:08:10.626Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-20T14:08:10.626Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-20T14:08:12.207Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:08:12.432Z] Server running on http://localhost:3000/
+[2026-08-20T14:12:42.973Z] ELIFECYCLE  Command failed.
+[2026-08-20T14:12:43.002Z] Dev server exited with code -1
+[2026-08-20T14:12:44.077Z] Starting dev server with command: pnpm run dev
+[2026-08-20T14:12:44.834Z] > agrinova@1.0.0 dev /home/ubuntu/agrinova
+[2026-08-20T14:12:44.834Z] > NODE_ENV=development tsx watch server/_core/index.ts
+[2026-08-20T14:12:46.454Z] [OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:12:46.719Z] Server running on http://localhost:3000/
+[2026-08-20T14:18:38.583Z] 2:18:38 PM [tsx] change in ./server/_core/env.ts Restarting...
+[2026-08-20T14:18:40.284Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:18:40.604Z] Server running on http://localhost:3000/
+[2026-08-20T14:19:02.652Z] 2:19:02 PM [tsx] change in ./server/routers/agri.ts Restarting...
+[2026-08-20T14:19:04.471Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:19:04.708Z] Server running on http://localhost:3000/
+[2026-08-20T14:20:54.885Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-08-20T14:23:55.224Z] 2:23:55 PM [vite] (client) hmr update /src/index.css, /src/components/agri/FieldBoundaryDrawer.tsx
+[2026-08-20T14:23:55.278Z] 2:23:55 PM [tsx] change in ./server/routers/agri.ts Restarting...
+[2026-08-20T14:23:57.316Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:23:57.568Z] Server running on http://localhost:3000/
+[2026-08-20T14:28:30.815Z] 2:28:30 PM [tsx] unlink in ./server/_core/env.ts Restarting...
+[2026-08-20T14:28:32.485Z] c[OAuth] Initialized with baseURL: https://api.manus.im
+[2026-08-20T14:28:32.757Z] Server running on http://localhost:3000/
