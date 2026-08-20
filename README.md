@@ -1114,6 +1114,4 @@ The project is defined and guided by the following documents:
 
 ---
 
-## License
 
-This repository should include the license selected by the project owner. If the project is intended to be open source, add an appropriate open-source license file such as `LICENSE`.
